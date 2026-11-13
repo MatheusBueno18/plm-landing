@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body { @apply bg-navy text-ice font-sans antialiased; }
+:focus-visible { outline: 2px solid #A9B6FF; outline-offset: 3px; border-radius: 6px; }
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 font-display text-sm font-semibold tracking-wider transition duration-300 hover:-translate-y-0.5 active:translate-y-0; }
+  .btn-primary { @apply bg-gradient-to-r from-vio to-[#7d5cf5] text-white shadow-[0_0_40px_-8px_#6546C8] hover:brightness-110; }
+  .btn-ghost { @apply border border-lav/40 text-lav hover:bg-lav/10; }
+  .card-d { @apply rounded-2xl border border-lav/15 bg-white/[.04] p-6 backdrop-blur transition duration-300 hover:border-lav/40 hover:bg-white/[.07]; }
+  .card-l { @apply rounded-2xl border border-navy/10 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl; }
+}
+.rv { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
+.rv.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .rv { opacity: 1; transform: none; }
+}
